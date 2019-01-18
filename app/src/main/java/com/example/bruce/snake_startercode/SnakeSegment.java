@@ -1,35 +1,47 @@
 package com.example.bruce.snake_startercode;
 
 public class SnakeSegment {
-    private int mXLoc;
-    private int mYLoc;
-    private int mLengthOfSnake;
+    private int XLoc;
+    private int YLoc;
     private Body mBodyParts;
     private int mDegree;
+
+
+    /*************************************************
+     * Enumerations
+     **************************************************/
 
     public enum Body {
 
         HEAD, BODY, TAIL;
     }
 
+    public SnakeSegment (Body bodyParts, int degree ,int XLoc, int YLoc){
+        mBodyParts = bodyParts;
+        mDegree = degree;
+        XLoc = XLoc;
+        YLoc = YLoc;
+
+    }
+
     /*************************************************
      * Getters and Setters
      **************************************************/
 
-    public int getmXLoc() {
-        return mXLoc;
+    public int getXLoc() {
+        return XLoc;
     }
 
-    public int getmYLoc() {
-        return mYLoc;
+    public void setXLoc(int XLoc) {
+        this.XLoc = XLoc;
     }
 
-    public int getmLengthOfSnake() {
-        return mLengthOfSnake;
+    public int getYLoc() {
+        return YLoc;
     }
 
-    public void setmLengthOfSnake(int mLengthOfSnake) {
-        this.mLengthOfSnake = mLengthOfSnake;
+    public void setYLoc(int YLoc) {
+        this.YLoc = YLoc;
     }
 
     public Body getmBodyParts() {
@@ -44,3 +56,4 @@ public class SnakeSegment {
         this.mDegree = mDegree;
     }
 }
+
