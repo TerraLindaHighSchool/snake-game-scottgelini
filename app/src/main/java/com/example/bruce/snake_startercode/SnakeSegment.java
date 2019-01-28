@@ -1,8 +1,8 @@
 package com.example.bruce.snake_startercode;
 
 public class SnakeSegment {
-    private int XLoc;
-    private int YLoc;
+    private int mXLoc;
+    private int mYLoc;
     private Body mBodyPart;
     private int mDegrees;
 
@@ -19,8 +19,8 @@ public class SnakeSegment {
     public SnakeSegment (Body bodyPart, int degrees ,int XLoc, int YLoc){
         mBodyPart = bodyPart;
         mDegrees = degrees;
-        XLoc = XLoc;
-        YLoc = YLoc;
+        mXLoc = XLoc;
+        mYLoc = YLoc;
 
     }
 
@@ -29,19 +29,19 @@ public class SnakeSegment {
      **************************************************/
 
     public int getXLoc() {
-        return XLoc;
+        return mXLoc;
     }
 
     public void setXLoc(int XLoc) {
-        this.XLoc = XLoc;
+        mXLoc = XLoc;
     }
 
     public int getYLoc() {
-        return YLoc;
+        return mYLoc;
     }
 
     public void setYLoc(int YLoc) {
-        this.YLoc = YLoc;
+        mYLoc = YLoc;
     }
 
     public Body getBodyPart() {
@@ -53,7 +53,7 @@ public class SnakeSegment {
     }
 
     public void setDegrees(int mDegree) {
-        this.mDegrees = mDegree;
+        mDegrees = mDegree;
     }
 }
 
