@@ -1,6 +1,5 @@
 package com.example.bruce.snake_startercode;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +52,9 @@ public class SnakeGame {
   }
 
   protected void eatApple() {
-    if (mAppleCoord[0] == mSnake.get(0).getXLoc()*getSpriteDim() && mAppleCoord[1] == mSnake.get(0).getYLoc()*getSpriteDim()){
+    int xLoc = mSnake.get(0).getXLoc() *getSpriteDim();
+    int yLoc = mSnake.get(0).getYLoc() *getSpriteDim();
+    if (mAppleCoord[0] == xLoc && mAppleCoord[1] == yLoc){
       growSnake();
       setAppleCoord();
     }
@@ -97,18 +98,23 @@ public class SnakeGame {
       switch (degrees) {
         case 180:
           mSnake.get(i).setXLoc(--xLoc);
+          if (mSnake.get(0).getXLoc() <= 0) mGameOver = true;
           break;
 
         case 90:
           mSnake.get(i).setYLoc(++yLoc);
+          if (mSnake.get(0).getYLoc() >= mYMax) mGameOver = true;
           break;
 
         case 0:
           mSnake.get(i).setXLoc(++xLoc);
+          if (mSnake.get(0).getXLoc() >= mXMax) mGameOver = true;
           break;
 
         case 270:
           mSnake.get(i).setYLoc(--yLoc);
+          if (mSnake.get(0).getYLoc() <= 0) mGameOver = true;
+          break;
       }
     }
     return mGameOver;
@@ -143,8 +149,8 @@ public class SnakeGame {
   }
 
   private void setAppleCoord () {
-    mAppleCoord[0] = (int) ((mBOARD_WIDTH-1)*Math.random()+1);
-    mAppleCoord[1] = (int) ((mBOARD_HEIGHT-1)*Math.random()+1);
+    mAppleCoord[0] = (int) ((mXMax - 1)*Math.random() + 1) * mSpriteDim;
+    mAppleCoord[1] = (int) ((mYMax - 1)*Math.random() + 1) * mSpriteDim;
   }
   // getters and Setters
 
